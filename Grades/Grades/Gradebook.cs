@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Grades
 {
-    class Gradebook
+    public class Gradebook
         //En klass funkar som en mall för att göra objekt. Det kan också användas för att göra en typ som används för en variabel.
     {
         public Gradebook()
@@ -16,7 +16,7 @@ namespace Grades
             //När objektet "grades" tillkallas så skapas en nya lista som kan ta emot float värden.
         }
 
-        public GradeStatistics ComputeStatistics()
+        GradeStatistics ComputeStatistics()
         {
             GradeStatistics stats = new GradeStatistics();
 
@@ -36,6 +36,7 @@ namespace Grades
         {
             grades.Add(grade);
         }
+        public string Name;
         //Allt inom brackets kallas "Scope"
         private List<float> grades;
         //Listan är en collection, som samlar float nummer. Fields "grades" är en variabel som deklarerats direkt i en class eller constructor.
