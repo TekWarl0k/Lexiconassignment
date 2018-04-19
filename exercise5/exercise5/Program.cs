@@ -16,7 +16,18 @@ namespace exercise5
             int indexOfString = Str.IndexOf("[");
             VarArray = Str.Remove(0, indexOfString);
 
-            Console.WriteLine(indexOfString);
+            VarArray = VarArray.Remove(3,4);
+            indexOfString = VarArray.IndexOf("]");
+            VarArray = VarArray.Insert(indexOfString, ",6,7,8,9,10");
+
+
+
+
+            /*VarArray = VarArray.Replace("4","9");
+            indexOfString = VarArray.IndexOf("5");
+            VarArray = VarArray.Remove(indexOfString, 1);
+            VarArray = VarArray.Insert(indexOfString,"10");*/
+
             Console.WriteLine(VarArray);
         }
     }

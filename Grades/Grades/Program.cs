@@ -18,7 +18,7 @@ Gradebook book = new Gradebook();
             GradeStatistics stats = book.ComputeStatistics();
             Console.WriteLine(stats.AverageGrade);
             Console.WriteLine(stats.HighestGrade);
-            Console.WriteLine(stats.LowestGrade);
+            Console.WriteLine(stats.LowestGrade); 
  
         }
     }
