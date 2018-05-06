@@ -37,7 +37,6 @@ namespace vendingmachine
                             Basic.Purchase();
                             break;
                         case 4:
-                            Inventory.MyInventory();
                             Basic.Use();
                             break;
                         case 5:

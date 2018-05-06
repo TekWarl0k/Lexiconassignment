@@ -11,7 +11,7 @@ namespace vendingmachine
         public static class MoneyPool
         {
             public static int[] Value = { 1, 5, 10, 20, 50, 100, 500, 1000 };
-            public static int money = 0;
+            public static int money;
 
             public static void AddMoney()
             {
@@ -20,39 +20,72 @@ namespace vendingmachine
                 {
                     Console.Write(num + "kr ");
                 }
-                money = Convert.ToInt32(Console.ReadLine());
-                switch (money)
+                int WhatMoney = Convert.ToInt32(Console.ReadLine());
+                switch (WhatMoney)
                 {
                     case 1:
                         Console.WriteLine("You put 1 krona in the machine.");
                         money = money++;
+                        Console.WriteLine();
+                        Console.WriteLine("You have put a total of " + money + " in the machine.");
+                        Console.ReadKey();
+                        Console.Clear();
                         break;
                     case 5:
                         Console.WriteLine("You put 5 kronor in the machine.");
                         money = money + 5;
+                        Console.WriteLine();
+                        Console.WriteLine("You have put a total of " + money + " in the machine.");
+                        Console.ReadKey();
+                        Console.Clear();
                         break;
                     case 10:
                         Console.WriteLine("You put 10 kronor in the machine.");
                         money = money + 10;
+                        Console.WriteLine();
+                        Console.WriteLine("You have put a total of " + money + " in the machine.");
+                        Console.ReadKey();
+                        Console.Clear();
                         break;
                     case 20:
                         Console.WriteLine("You put 20 kronor in the machine.");
                         money = money + 20;
+                        Console.WriteLine();
+                        Console.WriteLine("You have put a total of " + money + " in the machine.");
+                        Console.ReadKey();
+                        Console.Clear();
                         break;
                     case 50:
                         Console.WriteLine("You put 50 kronor in the machine.");
                         money = money + 50;
+                        Console.WriteLine();
+                        Console.WriteLine("You have put a total of " + money + " in the machine.");
+                        Console.ReadKey();
+                        Console.Clear();
                         break;
                     case 100:
                         Console.WriteLine("You put 100 kronor in the machine.");
                         money = money + 100;
+                        Console.WriteLine();
+                        Console.WriteLine("You have put a total of " + money + " in the machine.");
+                        Console.ReadKey();
+                        Console.Clear();
                         break;
                     case 500:
                         Console.WriteLine("You put 500 kronor in the machine.");
                         money = money + 500;
+                        Console.WriteLine();
+                        Console.WriteLine("You have put a total of " + money + " in the machine.");
+                        Console.ReadKey();
+                        Console.Clear();
                         break;
                     case 1000:
                         Console.WriteLine("You put 1000 kronor in the machine. You sure is a player! I should shred your note.");
+                        money = money + 1000;
+                        Console.WriteLine();
+                        Console.WriteLine("You have put a total of " + money + " in the machine.");
+                        Console.ReadKey();
+                        Console.Clear();
                         break;
                     default:
                         Console.WriteLine("You put in fake money!");
@@ -100,7 +133,7 @@ namespace vendingmachine
                     Console.WriteLine("What do you want to purchase?");
                     ClassInv.ShowStock();
                     string PurchaseInput = Convert.ToString(Console.ReadLine());
-                    if (FoodItems.Equals(PurchaseInput) || DrinkItems.Equals(PurchaseInput) || SnackItems.Equals(PurchaseInput))
+                    if (FoodItems.ContainsKey(PurchaseInput) || DrinkItems.ContainsKey(PurchaseInput) || SnackItems.ContainsKey(PurchaseInput))
                     {
                         int price;
                         if (FoodItems.TryGetValue(PurchaseInput, out price) || DrinkItems.TryGetValue(PurchaseInput, out price) || SnackItems.TryGetValue(PurchaseInput, out price))
@@ -110,11 +143,12 @@ namespace vendingmachine
                             {
                                 Console.WriteLine("You add " + PurchaseInput + " to your items.");
                                 Inventory.MyItems.Add(PurchaseInput);
-                                MoneyPool.money = MoneyPool.money - CheckPrice;
+                                MoneyPool.money -= CheckPrice;
                                 Console.WriteLine("Your change is " + MoneyPool.money);
                                 MoneyPool.money = 0;
 
                                 Console.ReadKey();
+                                Console.Clear();
                                 isRunning = false;
                                 //Om den hittar en som passar så ska den sparas i en lokal variabel så priset kan kollas och subtraheras ifrån vad användaren har.
                             }
@@ -126,7 +160,8 @@ namespace vendingmachine
                         }
                         else
                         {
-                            isRunning = false;
+                            Console.WriteLine("Error, can't find value.");
+                            Console.ReadKey();
                         }                  
                     }
                     else
@@ -152,13 +187,15 @@ namespace vendingmachine
                 {
                     Console.WriteLine(pair.Key, pair.Value);
                 }
+                Console.ReadKey();
+                Console.Clear();
             }
             public virtual void Use()
             {
                 Console.WriteLine("What do you want to consume?");
                 Inventory.MyInventory();
                 string ConsumeItem = Convert.ToString(Console.ReadLine());
-                if (FoodItems.Equals(ConsumeItem))
+                if (FoodItems.ContainsKey(ConsumeItem))
                 {
                     Console.WriteLine("You eat " + ConsumeItem);
                     Inventory.MyItems.Remove(ConsumeItem);
