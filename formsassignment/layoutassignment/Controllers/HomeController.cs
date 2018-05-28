@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using layoutassignment.Models;
 
 namespace layoutassignment.Controllers
 {
@@ -23,6 +24,16 @@ namespace layoutassignment.Controllers
         }
         public ActionResult Projects()
         {
+            return View();
+        }
+        public ActionResult CheckTemp()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CheckTemp(double input)
+        {
+            ViewBag.Result = TempCheck.CheckTemp(input);
             return View();
         }
     }

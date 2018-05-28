@@ -18,13 +18,14 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a href="@Url.Action("Index", "Home")"><img class="pull-left" src="~/Content/Img/owl.jpg" width="37" height="50"/></a>
-                @Html.ActionLink("JensA", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Jens Andersson", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Projects", "Projects", "Home")</li>
+                    <li>@Html.ActionLink("Fever Check", "CheckTemp", "Home")</li>
                 </ul>
             </div>
         </div>
