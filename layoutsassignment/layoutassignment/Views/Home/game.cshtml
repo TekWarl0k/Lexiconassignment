@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "game";
+}
+
+<h2>The Guessing Game</h2>
+<p>Guess on a number between 1 and 100.</p>
+
+@using (Html.BeginForm("GuessingGame", "Home", FormMethod.Post))
+{
+    <input type="number" name="input" value="0" />
+    <input type="submit" class="btn btn-primary" value="Check" />
+}
+@if (ViewBag.Result != null)
+{
+    @ViewBag.Result
+}
+
+

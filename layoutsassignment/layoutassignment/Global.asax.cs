@@ -18,6 +18,11 @@ namespace layoutassignment
                 new { controller = "home", action = "CheckTemp" }
                 );
             routes.MapRoute(
+                "Guesser",
+                "/GuessingGame",
+                new { controller = "home", action = "GuessingGame" }
+                );
+            routes.MapRoute(
                 "Default",
                 "{controller}/{action}/{id}",
                 new { controller = "home", action = "index", id = "" }
